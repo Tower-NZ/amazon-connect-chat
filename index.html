@@ -5,174 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tower Chat</title>
 </head>
-
 <body>
 
 <script type="text/javascript">
-(function (w, d, x, id) {
-  var s = d.createElement('script');
+  (function (w, d, x, id) {
+    var s = d.createElement('script');
 
-  s.src =
-    'https://tower-connect-uat.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+    s.src = 'https://tower-connect-uat.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+    s.async = 1;
+    s.id = id;
 
-  s.async = 1;
-  s.id = id;
+    d.getElementsByTagName('head')[0].appendChild(s);
 
-  d.getElementsByTagName('head')[0].appendChild(s);
+    w[x] = w[x] || function () {
+      (w[x].ac = w[x].ac || []).push(arguments);
+    };
+  })(
+    window,
+    document,
+    'amazon_connect',
+    '23f4f25f-20b6-4de4-8438-e9db5818a44e'
+  );
 
-  w[x] = w[x] || function () {
-    (w[x].ac = w[x].ac || []).push(arguments);
-  };
-})(
-  window,
-  document,
-  'amazon_connect',
-  '23f4f25f-20b6-4de4-8438-e9db5818a44e'
-);
+  amazon_connect('snippetId',
+    'QVFJREFIanRYbGxTNVVoejB5M3JnaFRweWltK2UvSHdGN25WOWRuajAza05OYi9Fc0FISUtXczJrbjg3MTR2OWQrWitUbS9OQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNaXJyaWVZeDZEU2Ewak1HMkFnRVFnQ3R2SlM3Yk03RzNLZVNPYjF4dExMVzFSLy9BWnFZNGtpaE04bFFOMUJnTnl0M0g3M0JEV0hia0dESzA6OjJHa0VBUDFSSmpHcUdWOHRNNUNodHVMQlBGUjJkWi81MEZIV2xseW45UE85Y3N1ek5FZG90VFU1SGdLQS9SSk9vSDYrbkJodmEzY0dhNWlsTFl2dkpCc0VraFN0U2VnTzVzN2loRW01NzRSejVxdUNwaXFwRkYrY0dTMElYUmcvdkxCakhRZklTaFIvVE9OL2kvWFpmVnR4SGQ0L0dadz0='
+  );
 
-amazon_connect(
-  'snippetId',
-  'QVFJREFIanRYbGxTNVVoejB5M3JnaFRweWltK2UvSHdGN25WOWRuajAza05OYi9Fc0FISUtXczJrbjg3MTR2OWQrWitUbS9OQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNaXJyaWVZeDZEU2Ewak1HMkFnRVFnQ3R2SlM3Yk03RzNLZVNPYjF4dExMVzFSLy9BWnFZNGtpaE04bFFOMUJnTnl0M0g3M0JEV0hia0dESzA6OjJHa0VBUDFSSmpHcUdWOHRNNUNodHVMQlBGUjJkWi81MEZIV2xseW45UE85Y3N1ek5FZG90VFU1SGdLQS9SSk9vSDYrbkJodmEzY0dhNWlsTFl2dkpCc0VraFN0U2VnTzVzN2loRW01NzRSejVxdUNwaXFwRkYrY0dTMElYUmcvdkxCakhRZklTaFIvVE9OL2kvWFpmVnR4SGQ0L0dadz0='
-);
+  amazon_connect('styles', {
+    iconType: 'CHAT',
 
-amazon_connect('styles', {
-  iconType: 'CHAT',
-
-  openChat: {
-    color: '#FFFFFF',
-    backgroundColor: '#7300E6'
-  },
-
-  closeChat: {
-    color: '#FFFFFF',
-    backgroundColor: '#7300E6'
-  }
-});
-
-amazon_connect('customStyles', {
-
-  global: {
-    frameWidth: '352px',
-    frameHeight: '716px',
-    fontSize: '14px',
-    typeface: 'Arial, Helvetica, sans-serif',
-    textColor: '#101828',
-    headerHeight: '96px',
-    footerHeight: '0px'
-  },
-
-  header: {
-    headerTextColor: '#FFFFFF',
-    headerBackgroundColor: '#7300E6'
-  },
-
-  transcript: {
-    widgetBackgroundColor: '#F5F5F5',
-
-    messageFontSize: '14px',
-    messageTextColor: '#101828',
-
-    agentChatBubbleColor: '#FFFFFF',
-    agentMessageTextColor: '#101828',
-
-    systemChatBubbleColor: '#FFFFFF',
-    systemMessageTextColor: '#101828',
-
-    customerChatBubbleColor: '#F0E2FF',
-    customerMessageTextColor: '#101828'
-  },
-
-  composer: {
-    fontSize: '14px',
-    textColor: '#101828',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#001B72',
-    focusBorderColor: '#001B72',
-    placeholderColor: '#667085'
-  },
-
-  logo: {
-    logoMaxHeight: '48px',
-    logoMaxWidth: '80px'
-  },
-
-  fullscreenMode: true
-});
-
-amazon_connect('customizationObject', {
-
-  header: {
-    dropdown: true,
-    dynamicHeader: true,
-    minimizeChatHeaderButton: false,
-    closeChatHeaderButton: true,
-    hide: false
-  },
-
-  transcript: {
-    hideDisplayNames: true,
-
-    eventNames: {
-      customer: 'You',
-      agent: 'Tower',
-      supervisor: 'Tower'
+    openChat: {
+      color: '#FFFFFF',
+      backgroundColor: '#7300E6'
     },
 
-    eventMessages: {
-      participantJoined: '',
-      participantDisconnect: '',
-      participantLeft: '',
-      participantIdle: '',
-      participantReturned: '',
-      chatEnded: 'Chat ended'
-    },
-
-    displayIcons: false,
-    disableStreamedLexBotResponse: false
-  },
-
-  composer: {
-    disableEmojiPicker: true,
-    disableCustomerAttachments: true,
-    alwaysHideToolbar: true,
-    hide: false,
-    richTextEditorV2Enabled: false
-  },
-
-  footer: {
-    disabled: true,
-    skipCloseChatButton: true
-  },
-
-  endChat: {
-    enableConfirmationDialog: true,
-
-    confirmationDialogText: {
-      title: 'End chat',
-      message: 'Are you sure you want to end this chat?',
-      confirmButtonText: 'End chat',
-      cancelButtonText: 'Keep chatting'
+    closeChat: {
+      color: '#FFFFFF',
+      backgroundColor: '#7300E6'
     }
-  }
-});
+  });
 
-amazon_connect('supportedMessagingContentTypes', [
-  'text/plain',
-  'text/markdown',
-  'application/vnd.amazonaws.connect.message.interactive',
-  'application/vnd.amazonaws.connect.message.interactive.response'
-]);
+  amazon_connect('customStyles', {
+    global: {
+      frameWidth: '380px',
+      frameHeight: '620px',
+      fontSize: '14px',
+      typeface: 'Arial',
+      headerHeight: '64px',
+      footerHeight: '0px'
+    },
 
-amazon_connect('mockLexBotTyping', true);
+    header: {
+      headerBackgroundColor: '#001B44'
+    },
 
-amazon_connect('webNotificationConfig', {
-  enabled: true
-});
+    transcript: {
+      widgetBackgroundColor: '#FFFFFF',
 
-amazon_connect('dataTrackingConfig', {
-  enabled: true,
-  advancedTracking: true
-});
+      messageFontSize: '14px',
+
+      agentChatBubbleColor: '#F1F2F4',
+      agentMessageTextColor: '#0B1324',
+
+      systemChatBubbleColor: '#F1F2F4',
+      systemMessageTextColor: '#0B1324',
+
+      customerChatBubbleColor: '#7300E6',
+      customerMessageTextColor: '#FFFFFF'
+    },
+
+    composer: {
+      fontSize: '14px'
+    },
+
+    logo: {
+      logoMaxHeight: '56px',
+      logoMaxWidth: '120%'
+    },
+
+    fullscreenMode: true
+  });
+
+  amazon_connect('customizationObject', {
+    header: {
+      dropdown: true,
+      dynamicHeader: true,
+      minimizeChatHeaderButton: true
+    },
+
+    transcript: {
+      hideDisplayNames: false,
+
+      eventNames: {
+        customer: 'You'
+      },
+
+      eventMessages: {
+        participantJoined: '',
+        participantDisconnect: '',
+        participantLeft: '',
+        participantIdle: '',
+        participantReturned: '',
+        chatEnded: 'This chat has ended.'
+      },
+
+      displayIcons: false
+    },
+
+    composer: {
+      disableEmojiPicker: true,
+      disableCustomerAttachments: true,
+      alwaysHideToolbar: true,
+      hide: false
+    },
+
+    footer: {
+      disabled: true,
+      skipCloseChatButton: true
+    }
+  });
+
+  amazon_connect('mockLexBotTyping', true);
+
+  amazon_connect('supportedMessagingContentTypes', [
+    'text/plain',
+    'text/markdown',
+    'application/json',
+    'application/vnd.amazonaws.connect.message.interactive',
+    'application/vnd.amazonaws.connect.message.interactive.response'
+  ]);
+
+  amazon_connect('dataTrackingConfig', {
+    enabled: true,
+    advancedTracking: true
+  });
+
+  amazon_connect('webNotificationConfig', {
+    enabled: true
+  });
 </script>
 
 </body>
