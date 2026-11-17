@@ -5,22 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tower Chat</title>
 </head>
-
 <body>
 
 <script type="text/javascript">
-(function (w, d, x, id) {
+(function(w, d, x, id) {
   var s = d.createElement('script');
 
-  s.src =
-    'https://tower-connect-uat.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
-
+  s.src = 'https://tower-connect-uat.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
   s.async = 1;
   s.id = id;
 
   d.getElementsByTagName('head')[0].appendChild(s);
 
-  w[x] = w[x] || function () {
+  w[x] = w[x] || function() {
     (w[x].ac = w[x].ac || []).push(arguments);
   };
 })(
@@ -50,15 +47,13 @@ amazon_connect('styles', {
 });
 
 amazon_connect('customStyles', {
-
   global: {
     frameWidth: '352px',
     frameHeight: '716px',
+    textColor: '#101828',
     fontSize: '14px',
     typeface: 'Arial, Helvetica, sans-serif',
-    textColor: '#101828',
-    headerHeight: '96px',
-    footerHeight: '0px'
+    headerHeight: '96px'
   },
 
   header: {
@@ -67,19 +62,19 @@ amazon_connect('customStyles', {
   },
 
   transcript: {
-    widgetBackgroundColor: '#F5F5F5',
-
     messageFontSize: '14px',
     messageTextColor: '#101828',
 
-    agentChatBubbleColor: '#FFFFFF',
+    widgetBackgroundColor: '#F5F5F5',
+
     agentMessageTextColor: '#101828',
+    agentChatBubbleColor: '#FFFFFF',
 
-    systemChatBubbleColor: '#FFFFFF',
     systemMessageTextColor: '#101828',
+    systemChatBubbleColor: '#FFFFFF',
 
-    customerChatBubbleColor: '#F0E2FF',
-    customerMessageTextColor: '#101828'
+    customerMessageTextColor: '#101828',
+    customerChatBubbleColor: '#F0E2FF'
   },
 
   composer: {
@@ -100,7 +95,6 @@ amazon_connect('customStyles', {
 });
 
 amazon_connect('customizationObject', {
-
   header: {
     dropdown: true,
     dynamicHeader: true,
@@ -156,14 +150,14 @@ amazon_connect('customizationObject', {
   }
 });
 
+amazon_connect('mockLexBotTyping', true);
+
 amazon_connect('supportedMessagingContentTypes', [
   'text/plain',
   'text/markdown',
   'application/vnd.amazonaws.connect.message.interactive',
   'application/vnd.amazonaws.connect.message.interactive.response'
 ]);
-
-amazon_connect('mockLexBotTyping', true);
 
 amazon_connect('webNotificationConfig', {
   enabled: true
