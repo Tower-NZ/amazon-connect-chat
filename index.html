@@ -127,9 +127,16 @@ amazon_connect('customizationObject', {
 
   composer: {
     disableEmojiPicker: true,
+
+    // Attachments remain enabled
     disableCustomerAttachments: false,
+
+    // Must remain false otherwise the attachment toolbar is hidden too
     alwaysHideToolbar: false,
+
     hide: false,
+
+    // Stops the rich-text controls being offered
     richTextEditorV2Enabled: false
   },
 
